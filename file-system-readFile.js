@@ -1,4 +1,8 @@
 const fs = require("node:fs");
+const { promisify } = require("node:util");
+
+//Cuando no funciona el /promises, en módulos nativos.
+const readFile = promisify(fs.readFile);
 
 console.log("Leyendo archivo.txt");
 fs.readFile("./archivo.txt", "utf-8", (err, text) => {
